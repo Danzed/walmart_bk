@@ -47,5 +47,9 @@ buildNumber.properties
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.factorypath
+.classpath
+.project
+.settings/*
 
 # End of https://www.toptal.com/developers/gitignore/api/maven,visualstudiocode,java

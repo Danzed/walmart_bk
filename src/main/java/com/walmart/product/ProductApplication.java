@@ -1,6 +1,6 @@
 package com.walmart.product;
 
-import com.walmart.product.Repository.ProductsRepository;
+import com.walmart.product.repository.ProductsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +22,7 @@ public class ProductApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("ACA " + productRepository.findByBrand("ooy eqrceli").size());
+		log.info("ACA " + productRepository.findByIdAndBrandAndDescriptionWithSameText("123").size());
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.walmart.product.Collection;
+package com.walmart.product.collection;
 
 import org.springframework.data.annotation.Id;
 

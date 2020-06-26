@@ -1,4 +1,4 @@
-package com.walmart.product.Collection;
+package com.walmart.product.collection;
 
 import org.springframework.data.annotation.Id;
 
@@ -12,7 +12,9 @@ public class Products {
     private String brand;
     private String description;
     private String image;
-    private Double price;
+    private int price;
 
-    
+    //Fields only use in palindrome logic, does not persist in bd
+    private Boolean isPalindrome = false;
+    private int pricePalindrome = 0;
 }

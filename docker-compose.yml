@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: walmart:bk
+    container_name: walmart
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+    networks:
+      - shared-net
+  mongo:
+    image: mongo:3.6.8
+    container_name: mongodb-local
+    ports: 
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=productListUser
+      - MONGO_INITDB_ROOT_PASSWORD=productListPassword
+    volumes:
+      - "./database:/database"
+    networks:
+      - shared-net
+    command: bash -c "ls ./database"
+    command: sh -c "./database/import.sh localhost"
+networks:
+  shared-net:
+    driver: bridge
+    

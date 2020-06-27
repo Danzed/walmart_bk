@@ -7,7 +7,6 @@ import com.walmart.product.repository.ProductsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.Text;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,8 +19,10 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Products> GetProductsWithLogicPalindrome(String findText) {
+        log.info("PRODUCTSERVICE: Init GetProductsWithLogicPalindrome");
         List<Products> productsList = productsRepository.findByIdAndBrandAndDescriptionWithSameText(findText);
         if(findText.equals(new StringBuilder(findText).reverse().toString())) {
+            log.info("PRODUCTSERVICE: Init Palindrome");
             productsList.forEach(product -> {
                 product.setIsPalindrome(true);
                 product.setPricePalindrome((int)Math.round(product.getPrice() / 2));

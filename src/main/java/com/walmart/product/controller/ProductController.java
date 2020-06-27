@@ -2,8 +2,6 @@ package com.walmart.product.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import com.walmart.product.collection.Products;
 import com.walmart.product.service.IProductService;
 

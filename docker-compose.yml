@@ -6,14 +6,14 @@ services:
     image: walmart:bk
     container_name: walmart
     links:
-      - mongo
+      - mongodb-products
     depends_on:
-      - mongo
+      - mongodb-products
     ports:
       - "8080:8080"
-  mongo:
+  mongodb-products:
     image: mongo:3.6.8
-    container_name: mongodb-local
+    container_name: mongodb-products
     ports: 
       - "27017:27017"
     environment:

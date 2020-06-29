@@ -10,9 +10,9 @@ Backend in Java to Walmart Test.
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - Java 11
 
-## Run with Docker
+### Run with Docker
 
-To use and test with docker compose you can run this command (inside the folder of project):
+To use with docker compose you can run this command (inside the folder of project):
 
 ```bash
 docker-compose up -d
@@ -21,23 +21,18 @@ docker-compose up -d
 After running docker compose, run the following command to docker to raise product database
 
 ```bash
-docker exec mongodb-local bash -c './database/import.sh localhost'
+docker exec mongodb-products bash -c './database/import.sh localhost'
 ```
 
-## Usage
+> Remenber to install dependencies maven and create jar file before run docker compose.
+> ``` mvn clean install ``` -> install dependencies
+> ``` java -jar target/Product-0.0.1-SNAPSHOT.jar ``` -> create jar file
 
-```python
-import foobar
+### Consumer API
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```curl
+curl -H "Content-Type: application/json" http://localhost:8080/api/product/saas
 ```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

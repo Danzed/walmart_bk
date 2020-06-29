@@ -11,8 +11,6 @@ services:
       - mongo
     ports:
       - "8080:8080"
-    networks:
-      - shared-net
   mongo:
     image: mongo:3.6.8
     container_name: mongodb-local
@@ -23,11 +21,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=productListPassword
     volumes:
       - "./database:/database"
-    networks:
-      - shared-net
-    command: bash -c "ls ./database"
-    command: sh -c "./database/import.sh localhost"
 networks:
-  shared-net:
-    driver: bridge
-    
+  default:
+    external:
+      name: backend

@@ -25,8 +25,8 @@ docker exec mongodb-products bash -c './database/import.sh localhost'
 ```
 
 > Remenber to install dependencies maven and create jar file before run docker compose.
-> ``` mvn clean install ``` -> install dependencies
-> ``` java -jar target/Product-0.0.1-SNAPSHOT.jar ``` -> create jar file
+> install dependencies ``` mvn clean install ```
+> create jar file ``` java -jar target/Product-0.0.1-SNAPSHOT.jar ```
 
 ### Consumer API
 

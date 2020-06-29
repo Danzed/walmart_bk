@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: walmart:bk
+    container_name: walmart
+    links:
+      - mongodb-products
+    depends_on:
+      - mongodb-products
+    ports:
+      - "8080:8080"
+  mongodb-products:
+    image: mongo:3.6.8
+    container_name: mongodb-products
+    ports: 
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=productListUser
+      - MONGO_INITDB_ROOT_PASSWORD=productListPassword
+    volumes:
+      - "./database:/database"
+networks:
+  default:
+    external:
+      name: backend
